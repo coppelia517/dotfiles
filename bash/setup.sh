@@ -70,7 +70,7 @@ do
     ln -snfv ${BASH_CONFIG}/${f} ${HOME}/${f}
 done
 
-cat <<EOF >> ${BASH_CONFIG}/.bashrc
+cat <<EOF >> ${HOME}/.bashrc
 if [ "$TERM" != "linux" ]; then
     source ${BASH_CONFIG}/pureline ${BASH_CONFIG}/pureline.conf
 fi
