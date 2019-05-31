@@ -59,9 +59,9 @@ echo $(tput setaf 2)    Deploy SSH Config dotfiles complete!. ✔︎$(tput sgr0)
 
 # 2-3. Bash Config Deploy dotfiles.
 cd ${BASH_CONFIG}
-if [ ! -f ${BASH_CONFIG}/.bashrc ]; then
-    echo "Create .bashrc file..."
-    touch ${BASH_CONFIG}/.bashrc
+if [ ! -f ${BASH_CONFIG}/.bash_profile ]; then
+    echo "Create .bash_profile file..."
+    touch ${BASH_CONFIG}/.bash_profile
 fi
 for f in .??*
 do
@@ -70,7 +70,7 @@ do
     ln -snfv ${BASH_CONFIG}/${f} ${HOME}/${f}
 done
 
-cat <<EOF >> ${HOME}/.bashrc
+cat <<EOF >> ${BASH_CONFIG}/.bash_profile
 if [ "$TERM" != "linux" ]; then
     source ${BASH_CONFIG}/pureline ${BASH_CONFIG}/pureline.conf
 fi
