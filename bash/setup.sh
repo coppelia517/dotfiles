@@ -63,18 +63,19 @@ if [ ! -f ${BASH_CONFIG}/.bash_profile ]; then
     echo "Create .bash_profile file..."
     touch ${BASH_CONFIG}/.bash_profile
 fi
-for f in .??*
-do
-    [[ ${f} = ".git" ]] && continue
-    [[ ${f} = ".gitignore" ]] && continue
-    ln -snfv ${BASH_CONFIG}/${f} ${HOME}/${f}
-done
 
 cat <<EOF >> ${BASH_CONFIG}/.bash_profile
 if [ "$TERM" != "linux" ]; then
     source ${BASH_CONFIG}/pureline ${BASH_CONFIG}/pureline.conf
 fi
 EOF
+
+for f in .??*
+do
+    [[ ${f} = ".git" ]] && continue
+    [[ ${f} = ".gitignore" ]] && continue
+    ln -snfv ${BASH_CONFIG}/${f} ${HOME}/${f}
+done
 
 echo $(tput setaf 2)    Deploy Bash Config dotfiles complete!. ✔︎$(tput sgr0)
 
