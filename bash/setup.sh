@@ -69,7 +69,7 @@ do
     [[ ${f} = ".gitignore" ]] && continue
     ln -snfv ${BASH_CONFIG}/${f} ${HOME}/${f}
 done
-cat << EOS >> ${BASH_CONFIG}/.bashrc
+cat << EOS > ${BASH_CONFIG}/.bashrc
 if [ "$TERM" != "linux" ]; then
     source ${BASH_CONFIG}/pureline ${BASH_CONFIG}/pureline.conf
 fi
