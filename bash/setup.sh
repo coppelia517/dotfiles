@@ -69,11 +69,11 @@ do
     [[ ${f} = ".gitignore" ]] && continue
     ln -snfv ${BASH_CONFIG}/${f} ${HOME}/${f}
 done
-cat <<EOS >> ${BASH_CONFIG}/.bashrc
+cat <<EOF >> ${BASH_CONFIG}/.bashrc
 if [ "$TERM" != "linux" ]; then
     source ${BASH_CONFIG}/pureline ${BASH_CONFIG}/pureline.conf
 fi
-EOS
+EOF
 echo $(tput setaf 2)    Deploy Bash Config dotfiles complete!. ✔︎$(tput sgr0)
 
 echo $(tput setaf 2)Deploy dotfiles complete!. ✔︎$(tput sgr0)
